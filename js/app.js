@@ -6,11 +6,16 @@ function calculate() {
 
 	// 30÷365×0,1711×1000 = 14,063013699
 
-	lap += 1;
-	var investment_raw = parseFloat($('#new_investment').val());
+	var
+		investment_raw = parseFloat($('#new_investment').val()),
+		tna_raw = parseFloat($('#tna').val());
 
 	if ($.trim($('#new_investment').val()) === '') {
 		investment_raw = 0;
+	}
+
+	if ($.trim($('#tna').val()) === '') {
+		tna_raw = 0;
 	}
 
 	var
@@ -18,7 +23,6 @@ function calculate() {
 		accumulated_gain = parseFloat($('#accumulated_gain').val()),
 
 		investment = investment_raw + accumulated_investment + accumulated_gain,
-		tna_raw = parseFloat($('#tna').val()),
 		tna = tna_raw / 100,
 		days = parseFloat($('#day_terms').val()),
 
@@ -39,6 +43,12 @@ function calculate() {
 
 	investment_refund = parseFloat(investment_refund) + investment;
 	gain_refund = parseFloat(gain_refund) + gain;
+	lap += 1;
+
+	$('#accumulated_investment').val(investment);
+	$('#accumulated_gain').val(gain);
+	$('#f_table__results').append(row);
+	$('#new_investment').val('');
 
 	$('#accumulated_investment_sum').text('Inversión: $'+refund.toFixed(2)+' +');
 	if (!$('#accumulated_investment_sum').hasClass('is-sum')) {
@@ -49,12 +59,6 @@ function calculate() {
 
 	$('#investment_refund').text('$ '+investment_refund.toFixed(2));
 	$('#gain_refund').text('$ '+gain_refund.toFixed(2));
-
-	$('#accumulated_investment').val(investment);
-	$('#accumulated_gain').val(gain);
-	$('#f_table__results').append(row);
-	$('#new_investment').val('');
-
 	$('.table_results_parent, .accumulated_summary_parent').slideDown();
 
 
