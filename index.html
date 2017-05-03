@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simulador de ahorro mediante plazo fijo</title>
+
+	<!-- Responsive and Phone -->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+		<div class="container">
+			<div class="wrapper wrapper_sm clearfix">
+				<h2 class="title">Simulador de ahorro mediante plazo fijo</h2>
+				<div class="row">
+					<div class="form-group col-md-3 col-sm-6 col-xs-12">
+						<label id="accumulated_investment_sum" for="new_investment" class="control-label">Inversión inicial</label>
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input type="number" class="form-control" id="new_investment" value="" placeholder="0">
+						</div>
+					</div>
+					<div class="form-group col-md-3 col-sm-6 col-xs-12">
+						<label for="tna" class="control-label">Tasa Nominal Anual</label>
+						<div class="input-group">
+							<span class="input-group-addon">%</span>
+							<input type="number" class="form-control" id="tna" value="0" placeholder="0">
+						</div>
+						<!-- <span class="help-block">
+							Consultá las tasas de interés de <a href="https://www.hsbc.com.ar/es/personas/inversiones/plazos-fijos.asp">HSBC</a>
+						</span> -->
+					</div>
+					<div class="form-group col-md-3 col-sm-6 col-xs-12">
+						<label for="day_terms" class="control-label">¿Durante cuántos días?</label>
+						<select id="day_terms" class="form-control" name="">
+							<option value="30">30</option>
+							<!-- <option disabled value="60">60</option> -->
+							<!-- <option disabled value="90">90</option> -->
+							<!-- <option disabled value="120">120</option> -->
+						</select>
+					</div>
+					<div class="form-group col-md-3 col-sm-6 col-xs-12">
+						<label for="simulate" class="control-label">¿Desea simular este plazo fijo?</label>
+						<button type="button" name="button" id="simulate" class="btn btn-primary btn-block" onclick="calculate();">simular</button>
+					</div>
+				</div>
+			</div>
+			<input type="number" name="" value="0" id="accumulated_investment">
+			<input type="number" name="" value="0" id="accumulated_gain">
+
+			<div class="wrapper wrapper_sm clearfix accumulated_summary_parent">
+				<ul class="list-group accumulated_summary">
+					<li class="list-group-item">
+						<span id="investment_refund" class="badge">$ 0</span>
+						Inversión total
+					</li>
+					<li class="list-group-item">
+						<span id="gain_refund" class="badge">$ 0</span>
+						Ganancia acumulada
+					</li>
+				</ul>
+			</div>
+
+			<div class="wrapper wrapper_sm clearfix table_results_parent">
+				<div class="table-responsive">
+					<table class="table table-striped table-hover table_results">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Inversión</th>
+								<th>TNA</th>
+								<th>Días</th>
+								<th>Int. ganados</th>
+								<th>$ a reembolsar</th>
+							</tr>
+						</thead>
+						<tbody id="f_table__results">
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
+<body>
+	<script src="js/jquery-2.2.4.min.js" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" charset="utf-8"></script>
+	<script src="js/app.js" charset="utf-8"></script>
+</body>
+</html>

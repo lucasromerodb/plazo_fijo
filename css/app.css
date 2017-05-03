@@ -1,0 +1,46 @@
+.wrapper {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.wrapper.wrapper_sm {
+	max-width: 1024px;
+}
+
+.title {
+	margin-bottom: 30px;
+	margin-top: 70px;
+	display: block;
+}
+
+#accumulated_investment,
+#accumulated_gain {
+	display: none;
+}
+
+.accumulated_summary {
+	width: 300px;
+	float: left;
+}
+
+.accumulated_summary_parent,
+.table_results_parent {
+	display: none;
+}
+
+#accumulated_investment_sum.is-sum {
+	color: #158CBA;
+	font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+	.accumulated_summary {
+		width: 100%;
+	}
+
+	.title {
+		margin-top: 30px;
+	}
+}
