@@ -57,10 +57,10 @@
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="day_terms" class="control-label">¿Durante cuántos días?</label>
 						<select id="day_terms" class="form-control" name="">
-							<option value="30">30</option>
-							<!-- <option disabled value="60">60</option> -->
-							<!-- <option disabled value="90">90</option> -->
-							<!-- <option disabled value="120">120</option> -->
+							<option value="30" selected="true">30</option>
+							<option value="60">60</option>
+							<option value="90">90</option>
+							<option value="120">120</option>
 						</select>
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
@@ -81,6 +81,10 @@
 					<li class="list-group-item">
 						<span id="gain_refund" class="badge">$ 0</span>
 						Ganancia acumulada
+					</li>
+					<li class="list-group-item">
+						<span id="days_total" class="badge">0</span>
+						Total de días
 					</li>
 				</ul>
 			</div>

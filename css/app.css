@@ -16,7 +16,8 @@
 }
 
 #accumulated_investment,
-#accumulated_gain {
+#accumulated_gain,
+#accumulated_days {
 	display: none;
 }
 

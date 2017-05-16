@@ -1,10 +1,8 @@
-var lap = 0;
+var lap = 1;
 var investment_refund = 0;
 var gain_refund = 0;
 
 function calculate() {
-
-	// 30÷365×0,1711×1000 = 14,063013699
 
 	var
 		investment_raw = parseFloat($('#new_investment').val()),
@@ -25,6 +23,7 @@ function calculate() {
 		investment = investment_raw + accumulated_investment + accumulated_gain,
 		tna = tna_raw / 100,
 		days = parseFloat($('#day_terms').val()),
+		days_total = parseFloat($('#days_total').text()) + days,
 
 		gain = parseFloat((days / 365) * tna * investment),
 		refund = investment+gain,
@@ -39,14 +38,16 @@ function calculate() {
 			'<td><span class="label label-primary">$ '+refund.toFixed(2)+'</span></td>'+
 		'</tr>'
 		;
-		console.log(investment);
 
-	investment_refund = parseFloat(investment_refund) + investment;
+	console.log('Plazo #'+lap+' - Inversión: $'+investment.toFixed(2)+' - Retiro: $'+gain.toFixed(2)+' - Total = $'+refund.toFixed(2));
+
+	investment_refund = investment;
 	gain_refund = parseFloat(gain_refund) + gain;
 	lap += 1;
 
 	$('#accumulated_investment').val(investment);
 	$('#accumulated_gain').val(gain);
+	$('#accumulated_days').val(days);
 	$('#f_table__results').append(row);
 	$('#new_investment').val('');
 
@@ -59,9 +60,7 @@ function calculate() {
 
 	$('#investment_refund').text('$ '+investment_refund.toFixed(2));
 	$('#gain_refund').text('$ '+gain_refund.toFixed(2));
+	$('#days_total').text(days_total);
 	$('.table_results_parent, .accumulated_summary_parent').slideDown();
-
-
-	// 35211.14591325745
 
 }
