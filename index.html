@@ -26,6 +26,7 @@
 	<meta property="twitter:url" content="http://lucasromerodb.github.io/plazo_fijo/index.html">
 
 	<!-- Responsive and Phone -->
+	<meta name="mobile-web-app-capable" content="yes">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
 	<meta name="format-detection" content="telephone=no">
@@ -38,17 +39,17 @@
 				<h2 class="title">Simulador de ahorro mediante plazo fijo</h2>
 				<div class="row">
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
-						<label id="accumulated_investment_sum" for="new_investment" class="control-label">Inversión inicial</label>
+						<label id="accumulated_investment_sum" for="new_investment" class="control-label"  onclick="ga('send', 'event', 'Acción', 'Formulario', 'Click en suma de inversión inicial');">Inversión inicial</label>
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input type="number" class="form-control" id="new_investment" value="" placeholder="0">
+							<input type="number" class="form-control" id="new_investment" value="" placeholder="0" onkeyup="ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">
 						</div>
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="tna" class="control-label">Tasa Nominal Anual</label>
 						<div class="input-group">
 							<span class="input-group-addon">%</span>
-							<input type="number" class="form-control" id="tna" value="" placeholder="0">
+							<input type="number" class="form-control" id="tna" value="" placeholder="0" onkeyup="ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">
 						</div>
 						<!-- <span class="help-block">
 							Consultá las tasas de interés de <a href="https://www.hsbc.com.ar/es/personas/inversiones/plazos-fijos.asp">HSBC</a>
@@ -56,7 +57,7 @@
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="day_terms" class="control-label">¿Durante cuántos días?</label>
-						<select id="day_terms" class="form-control" name="">
+						<select id="day_terms" class="form-control" name="" onclick="ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">
 							<option value="30" selected="true">30</option>
 							<option value="60">60</option>
 							<option value="90">90</option>
@@ -65,7 +66,7 @@
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="simulate" class="control-label">¿Desea simular este plazo fijo?</label>
-						<button type="button" name="button" id="simulate" class="btn btn-primary btn-block" onclick="calculate();">simular</button>
+						<button type="button" name="button" id="simulate" class="btn btn-primary btn-block" onclick="calculate();ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">simular</button>
 					</div>
 				</div>
 			</div>
@@ -75,15 +76,15 @@
 			<div class="wrapper wrapper_sm clearfix accumulated_summary_parent">
 				<ul class="list-group accumulated_summary">
 					<li class="list-group-item">
-						<span id="investment_refund" class="badge">$ 0</span>
+						<span id="investment_refund" class="badge" onclick="ga('send', 'event', 'Información', 'Badges', 'Inversion total');">$ 0</span>
 						Inversión total
 					</li>
 					<li class="list-group-item">
-						<span id="gain_refund" class="badge">$ 0</span>
+						<span id="gain_refund" class="badge" onclick="ga('send', 'event', 'Información', 'Badges', 'Ganancia acumulada');">$ 0</span>
 						Ganancia acumulada
 					</li>
 					<li class="list-group-item">
-						<span id="days_total" class="badge">0</span>
+						<span id="days_total" class="badge" onclick="ga('send', 'event', 'Información', 'Badges', 'Total de días');">0</span>
 						Total de días
 					</li>
 				</ul>
@@ -114,11 +115,11 @@
 			<div class="wrapper wrapper_sm">
 				<h4>Créditos</h4>
 				<p>
-					Desarrollo: <a href="http://lucasromerodb.github.io" target="_blank">Lucas Romero Di Benedetto</a>
+					Desarrollo: <a href="http://lucasromerodb.github.io" target="_blank" onclick="ga('send', 'event', 'Créditos', 'Enlace', 'Lucas');">Lucas Romero Di Benedetto</a>
 					<br>
-					Fórmulas: Leonardo Leone
+					Fórmulas: <span onclick="ga('send', 'event', 'Créditos', 'Enlace', 'Leonardo');">Leonardo Leone</span>
 					<br>
-					GitHub: <a href="https://github.com/lucasromerodb/plazo_fijo/" target="_blank">https://github.com/lucasromerodb/plazo_fijo/</a>
+					GitHub: <a href="https://github.com/lucasromerodb/plazo_fijo/" target="_blank" onclick="ga('send', 'event', 'Créditos', 'Enlace', 'GitHub');">https://github.com/lucasromerodb/plazo_fijo/</a>
 				</p>
 			</div>
 		</div>
@@ -126,6 +127,16 @@
 	<script src="js/jquery-2.2.4.min.js" charset="utf-8"></script>
 	<script src="js/bootstrap.min.js" charset="utf-8"></script>
 	<script src="js/app.js" charset="utf-8"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-56593805-2', 'auto');
+		ga('send', 'pageview');
+
+	</script>
 <body>
 </body>
 </html>
