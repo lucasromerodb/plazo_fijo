@@ -35,7 +35,7 @@ function calculate() {
 			'<td>'+tna_raw.toFixed(2)+'%</td>'+
 			'<td>'+days+'</td>'+
 			'<td><span class="label label-success">$ '+gain.toFixed(2)+'</span></td>'+
-			'<td><span class="label label-primary">$ '+refund.toFixed(2)+'</span></td>'+
+			'<td><span class="label label-info">$ '+refund.toFixed(2)+'</span></td>'+
 		'</tr>'
 		;
 
