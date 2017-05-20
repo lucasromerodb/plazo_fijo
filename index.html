@@ -27,6 +27,7 @@
 
 	<!-- Responsive and Phone -->
 	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#75caeb" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
 	<meta name="format-detection" content="telephone=no">
@@ -42,14 +43,14 @@
 						<label id="accumulated_investment_sum" for="new_investment" class="control-label"  onclick="ga('send', 'event', 'Acción', 'Formulario', 'Click en suma de inversión inicial');">Inversión inicial</label>
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input type="number" class="form-control" id="new_investment" value="" placeholder="0" onkeyup="ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">
+							<input type="number" class="form-control" id="new_investment" value="" placeholder="0" onkeyup="ga('send', 'event', 'Acción', 'Formulario', 'Ingreso de inversión');">
 						</div>
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="tna" class="control-label">Tasa Nominal Anual</label>
 						<div class="input-group">
 							<span class="input-group-addon">%</span>
-							<input type="number" class="form-control" id="tna" value="" placeholder="0" onkeyup="ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">
+							<input type="number" class="form-control" id="tna" value="" placeholder="0" onkeyup="ga('send', 'event', 'Acción', 'Formulario', 'Ingreso de TNA');">
 						</div>
 						<!-- <span class="help-block">
 							Consultá las tasas de interés de <a href="https://www.hsbc.com.ar/es/personas/inversiones/plazos-fijos.asp">HSBC</a>
@@ -57,7 +58,7 @@
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="day_terms" class="control-label">¿Durante cuántos días?</label>
-						<select id="day_terms" class="form-control" name="" onclick="ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">
+						<select id="day_terms" class="form-control" name="" onclick="ga('send', 'event', 'Acción', 'Formulario', 'Selección de cantidad de días');">
 							<option value="30" selected="true">30</option>
 							<option value="60">60</option>
 							<option value="90">90</option>
@@ -66,7 +67,7 @@
 					</div>
 					<div class="form-group col-md-3 col-sm-6 col-xs-12">
 						<label for="simulate" class="control-label">¿Desea simular este plazo fijo?</label>
-						<button type="button" name="button" id="simulate" class="btn btn-primary btn-block" onclick="calculate();ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">simular</button>
+						<button type="button" name="button" id="simulate" class="btn btn-info btn-block" onclick="calculate();ga('send', 'event', 'Acción', 'Formulario', 'Simular plazo fijo');">simular</button>
 					</div>
 				</div>
 			</div>
